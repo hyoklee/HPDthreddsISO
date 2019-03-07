@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# This is a service wrapper for h5tojson.
+#
+# Test arguments.
+# echo $2 >& /tmp/h5json.json
+
+# Run the actual command.
+/usr/bin/h5tojson -d $2 > /tmp/h5json.json
