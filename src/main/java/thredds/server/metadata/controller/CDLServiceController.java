@@ -25,7 +25,7 @@ public class CDLServiceController {
    public ResponseEntity<String> handleRequest(HttpServletRequest request, HttpServletResponse response){
 
        HttpHeaders responseHeaders = new HttpHeaders();
-       responseHeaders.setContentType(MediaType.TEXT_XML);
+       responseHeaders.setContentType(MediaType.TEXT_PLAIN);
        //  return new ResponseEntity<String>(request.getServletPath()+" Hello, Ted!", responseHeaders, HttpStatus.OK);
 
        String outStr = "";
@@ -40,7 +40,7 @@ public class CDLServiceController {
            // Size = service_name + 1. E.g., CDL is 3+1 = 4.
            path = path.substring(4);
            System.out.println( "path=" + path);
-           String command[] = {"/hdfdap/hdfeos/bin/h4mapwriter", path};
+           String command[] = {"/hdfdap/hdfeos/bin/ncdump", "-h", path};
            process = runtime.exec(command);
 			
            // Get stdout stream.
